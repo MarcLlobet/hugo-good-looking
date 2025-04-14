@@ -1,0 +1,31 @@
+{{ define "main" }}
+  {{/* .Content */}}
+  <div class="main-wrapper">
+  <div class="post-entries-list">
+    {{ range site.RegularPages }}
+    <div class="post-entry" data-image="{{ .Params.cover.image }}">
+      <a href="{{ .RelPermalink }}">
+        <h2>{{ .LinkTitle }}</h2>
+      </a>  
+    </div>
+
+      {{/* .Summary */}}
+    {{ end }}
+</div>
+
+<div class="post-image">
+  <picture>
+    <div class="picture-wrapper">
+      <div id="dynamic-image" ></div>
+      <svg viewBox="0 0 100 100" class="svg-placeholder" stroke="currentColor" stroke-width="5">
+        <rect x="2.5" y="2.5" width="95" height="95" fill="none" />
+        <line x1="2.5" y1="2.5" x2="95" y2="95" />
+        <line x1="97.5" y1="2.5" x2="2.5" y2="97.5" />
+      </svg>
+    </div>
+</picture>
+
+</div>
+
+</div>
+{{ end }}

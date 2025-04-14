@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ range .Pages }}
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    {{ with .Params.cover }}
+      {{ printf "Cover image path: %s" . | safeHTML }}
+      <img src="{{ . }}" alt="Cover image">
+    {{ else }}
+      {{ $images := findRE "<img.*?src=[\"'](.*?)[\"']" .Content }}
+      {{ if $images }}
+        {{ printf "First image path: %s" (index $images 0) | safeHTML }}
+        <img src="{{ index $images 0 }}" alt="First image">
+      {{ else }}
+        {{ printf "No images found in content" | safeHTML }}
+      {{ end }}
+    {{ end }}
+    {{ .Summary }}
+  {{ end }}
+{{ end }}
