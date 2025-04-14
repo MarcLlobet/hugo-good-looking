@@ -6,6 +6,7 @@
     <div class="post-entry" data-image="{{ .Params.cover.image }}">
       <a href="{{ .RelPermalink }}">
         <h2>{{ .LinkTitle }}</h2>
+        <link rel="prefetch" href="{{ .Params.cover.image }}" />
       </a>  
     </div>
 
@@ -17,10 +18,9 @@
   <picture>
     <div class="picture-wrapper">
       <div id="dynamic-image" ></div>
-      <svg viewBox="0 0 100 100" class="svg-placeholder" stroke="currentColor" stroke-width="5">
-        <rect x="2.5" y="2.5" width="95" height="95" fill="none" />
-        <line x1="2.5" y1="2.5" x2="95" y2="95" />
-        <line x1="97.5" y1="2.5" x2="2.5" y2="97.5" />
+      <svg viewBox="0 0 10 10" class="svg-placeholder" stroke="currentColor" stroke-width="0.25">
+        <line x1="0" y1="0" x2="10" y2="10" />
+        <line x1="10" y1="0" x2="0" y2="10" />
       </svg>
     </div>
 </picture>

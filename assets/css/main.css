@@ -1,14 +1,25 @@
+:root {
+  --black: black;
+  --white: white
+}
+
 * {
   box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
 }
 
 body {
   font-optical-sizing: auto;
   font-style: normal;
-  font-family: 'Helvetica Neue', sans-serif;
-  color: #000;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'Helvetica Neue';
+  color: var(--black);
   line-height: 1.5;
   margin: 0;
+  background-color: var(--white);
 }
 
 header {
@@ -17,16 +28,32 @@ header {
   padding: 0 3rem;
   justify-content: space-between;
   align-items: center;
-  border: 3px none;
-  border-bottom-style: dotted;
   position: sticky;
   top: 0;
-  background-color: white;
+  color: var(--black);
+  fill: var(--black);
   z-index: 10;
+  border-bottom: 5px solid var(--black);
+  background-color: var(--white);
+}
+
+header a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 1rem 0;
+  gap: 1rem;
+  color: inherit;
+}
+
+
+
+.header-logo {
+  height: 100%;
 }
 
 h1 {
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-weight: 200;
   line-height: 4dvh;
   margin: 0;
@@ -36,17 +63,21 @@ main {
   padding: 0 3rem;
 }
 
-footer { display: none;}
-
 a {
-  color: #000;
+  color: var(--black);
   text-decoration: none;
 }
 
-.main-wrapper{
+a:hover {
+  color: var(--black);
+  fill: var(--black);
+}
+
+.main-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: 5rem;
 }
 
 .post-entries-list {
@@ -56,7 +87,27 @@ a {
   justify-content: flex-start;
   align-items: flex-start;
   height: 100%;
-  overflow: hidden;
+}
+
+.post-entry a:hover h2 {
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.post-entry h2 {
+  position: relative;
+  padding-right: 1rem;
+}
+
+.post-entry h2:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 1rem;
+  height: 100%;
+  background-color: inherit;
+  transform: translate(-1rem, 0);
 }
 
 .post-image {
@@ -70,16 +121,17 @@ a {
 
 .post-image picture {
   width: 100%;
-  color: #000;
+  color: var(--black);
   align-items: center;
   display: flex;
 }
 
-.picture-wrapper{
+.picture-wrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
   align-items: center;
+  border: 5px solid var(--black);
 }
 
 .post-image svg,
@@ -100,7 +152,53 @@ a {
   background-position: center;
 }
 
+.single-post {
+  padding: 4.5rem 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
 
 .single-post img {
   max-width: 100%;
+  max-height: 50dvh;
+}
+
+.single-post time {
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  display: inline-block;
+}
+
+.single-post h2 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.single-post p  {
+  margin: 0;
+  padding: 1rem 0;
+  max-width: 55ch;
+  font-size: 1.3rem;
+  line-height: 1.9rem;
+}
+
+.single-post ul  {
+  margin: 0;
+  padding: 1rem 0 1rem 4rem;
+  max-width: 70ch;
+}
+
+footer {
+  display: flex;
+  font-size: 0.8rem;
+  font-weight: 200;
+  align-items: flex-end;
+  justify-content: center;
+  border-top: 5px solid var(--black);
+}
+
+footer p {
+  margin: 0;
+  padding: 1rem 0;
 }
